@@ -25,7 +25,21 @@ public class TrianguloDePascal {
         }
         return triangulo;
     }
+    public static int[][] gerarTriangulo(int linhas) {
+        int[][] triangulo = new int[linhas][linhas];
+        for (int i = 0; i < linhas; i++) {
+            
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i) {
+                    triangulo[i][j] = 1;
+                } else {
+                    triangulo[i][j] = triangulo[i - 1][j - 1] + triangulo[i - 1][j];
+                }
+            }
+        }
 
+        return triangulo;
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite o número de linhas do Triângulo de Pascal: ");
